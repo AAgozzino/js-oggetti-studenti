@@ -5,11 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oggetti Studenti</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
   </head>
   <body>
+    <h1>Studenti classe#17</h1>
+    <div class="nuovo-studente">
+      <input type="text" name="nome" id="nome">
+      <input type="text" name="cognome" id="cognome">
+      <input type="number" name="eta" id="eta">
+      <button type="button" name="aggiungi" id="aggiungi">Aggiungi</button>
+    </div>
+    <div class="elenco-studenti">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/main.js" charset="utf-8"></script>
+    </div>
+    <!-- TEMPLATE -->
+    <script id="studenti-template" type="text/x-handlebars-template">
+      <div class="studente">
+        <h2>Studente {{numero}}</h2>
+        <ul>
+          <li>Nome: {{nome}}</li>
+          <li>Cognome: {{cognome}}</li>
+          <li>Età: {{eta}}</li>
+        </ul>
+
+      </div>
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js" charset="utf-8"></script>
 
   </body>
 </html>

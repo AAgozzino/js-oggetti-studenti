@@ -34,18 +34,42 @@ $(document).ready(function(){
     },
   ];
 
-  for (var i = 0; i < classe.length; i++) {
-    for (var k in classe[i]) {
-      console.log(classe[i]["nome"] + " " + classe[i]["cognome"]);
-    }
-  };
+  // for (var i = 0; i < classe.length; i++) {
+  //   for (var k in classe[i]) {
+  //     console.log(classe[i]["nome"] + " " + classe[i]["cognome"]);
+  //   }
+  // };
 
   // Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
-  var nuovoStudente = {
-    "nome" : prompt("Inserisci il nome del nuovo studente"),
-    "cognome" : prompt("Inserisci il cognome del nuovo stundente"),
-    "eta" : parseInt(prompt("inserisci l'età del nuovo studente"))
-  };
-  classe.push(nuovoStudente);
-  console.log(classe);
+  // var nuovoStudente = {
+  //   "nome" : prompt("Inserisci il nome del nuovo studente"),
+  //   "cognome" : prompt("Inserisci il cognome del nuovo stundente"),
+  //   "eta" : parseInt(prompt("inserisci l'età del nuovo studente"))
+  // };
+  // classe.push(nuovoStudente);
+  // console.log(classe);
+
+
+  $("#aggiungi").click(function(){
+    var nuovoStudente = {
+      "nome" : $("#nome").val(),
+      "cognome" : $("#cognome").val(),
+      "eta" : $("#eta").val()
+    }
+    classe.push(nuovoStudente);
+
+    var source = $("#studenti-template").html();
+    var template = Handlebars.compile(source);
+    for (var i = 0; i < classe.length; i++) {
+      var context = {
+        numero: i + 1,
+        nome: classe[i]["nome"],
+        cognome: classe[i]["cognome"],
+        eta: classe[i]["eta"]
+      };
+      var html = template(context);
+      $(".elenco-studenti").append(html);
+    }
+  });
+
 });
