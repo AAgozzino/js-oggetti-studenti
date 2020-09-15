@@ -14,19 +14,23 @@ $(document).ready(function(){
   var classe = [
     {
       "nome" : "Samuele",
-      "cognome" : "Madrigali"
+      "cognome" : "Madrigali",
+      "eta" : 29
     },
     {
       "nome" : "Elisabetta",
-      "cognome" : "Dahò"
+      "cognome" : "Dahò",
+      "eta" : 25
     },
     {
       "nome" : "Enrico",
-      "cognome" : "Gennari"
+      "cognome" : "Gennari",
+      "eta" : 33
     },
     {
       "nome" : "Laura",
-      "cognome" : "Colotto"
+      "cognome" : "Colotto",
+      "eta" : 30
     },
   ];
 
@@ -35,4 +39,13 @@ $(document).ready(function(){
       console.log(classe[i]["nome"] + " " + classe[i]["cognome"]);
     }
   };
+
+  // Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+  var nuovoStudente = {
+    "nome" : prompt("Inserisci il nome del nuovo studente"),
+    "cognome" : prompt("Inserisci il cognome del nuovo stundente"),
+    "eta" : parseInt(prompt("inserisci l'età del nuovo studente"))
+  };
+  classe.push(nuovoStudente);
+  console.log(classe);
 });
